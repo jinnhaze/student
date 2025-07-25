@@ -1,1 +1,47 @@
-jjjj
+import os
+def insert ():
+    student_name = input("name: ")
+    phone_number = input(" phone number: ")
+    email_id = input(" email id: ")
+    course = input("course: ")
+    filename = student_name+".txt"
+    student_file =(
+        "student name:"+student_name+"\n"
+        "phone number:"+phone_number+"\n"
+        "email id:"+email_id+"\n"
+        "course:"+course+"\n"
+    )
+    f=open(filename,"w")
+    f.write(student_file)
+    f.close()
+
+def display():
+    student_name = input("Enter student name: ")
+    filename = student_name + ".txt"
+    f = open(filename, "r")
+    for x in f:
+        print(x)
+
+
+def delete():
+    student_name = input("Enter student name: ")
+    filename = student_name + ".txt"
+    os.remove(filename)
+while True:
+      print("STUDENT RECORDS")
+      print("1.student details")
+      print("2.display student")
+      print("3.delete student")
+      print("4.exit")
+      choice = input("Enter your choice: ")
+      if choice == "1":
+          insert()
+      elif choice == "2":
+          display()
+      elif choice == "3":
+          delete()
+          print("student record deleted")
+      elif choice == "4":
+          exit()
+      else:
+          print("Invalid choice")
